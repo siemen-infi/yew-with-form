@@ -1,0 +1,21 @@
+[package]
+name = "form"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+validator = "0.16.0"
+validator_derive = "0.16.0"
+yew = "0.20.0"
+gloo-console = "0.2.3"
+wasm-bindgen = "0.2.83"
+
+[dependencies.web-sys]
+version = "0.3.60"
+features = [
+"HtmlInputElement",
+"HtmlSelectElement",
+"HtmlTextAreaElement"
+]
