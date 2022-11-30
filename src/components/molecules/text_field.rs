@@ -1,8 +1,8 @@
-use crate::components::atoms::{label::*, text_input::*};
+use crate::components::atoms::{label::*};
 use form::{component::Field, Form, FormModel};
 use yew::prelude::*;
 
-use super::checkbox_field::_CheckboxFieldProps::label_value;
+
 
 #[derive(Properties, PartialEq)]
 pub struct TextFieldProps<T: FormModel> {
@@ -20,7 +20,7 @@ where
     if let Some(label) = &props.label_value {
         html! {
             <Label for_attr={props.form_field_id.clone()}>
-                {{label}}
+                {label}
             </Label>
         }
     } else {

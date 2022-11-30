@@ -1,6 +1,6 @@
 use yew::{prelude::*, virtual_dom::AttrValue};
 
-#[derive(Properties, PartialEq)]
+#[derive(Properties, PartialEq, Eq)]
 pub struct TextInputProps {
     #[prop_or_default]
     pub placeholder: Option<String>,
@@ -25,7 +25,7 @@ pub fn text_input(props: &TextInputProps) -> Html {
             id={props.id.clone()}
             {class}
             type={"text"}
-            placeholder={get_input_placeholder(&props)}
+            placeholder={get_input_placeholder(props)}
         />
     }
 }

@@ -2,7 +2,7 @@ use crate::components::atoms::{checkbox::*, label::*};
 
 use yew::{prelude::*, virtual_dom::AttrValue};
 
-#[derive(Properties, PartialEq)]
+#[derive(Properties, PartialEq, Eq)]
 pub struct CheckboxFieldProps {
     pub id: AttrValue,
     pub label_value: String,

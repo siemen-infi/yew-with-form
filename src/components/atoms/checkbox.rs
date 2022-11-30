@@ -1,6 +1,6 @@
 use yew::{function_component, html, virtual_dom::AttrValue, Html, Properties};
 
-#[derive(Properties, PartialEq)]
+#[derive(Properties, PartialEq, Eq)]
 pub struct CheckboxProps {
     #[prop_or_default]
     pub label: Option<String>,
