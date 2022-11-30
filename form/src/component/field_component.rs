@@ -1,7 +1,6 @@
-use gloo_console::log;
 use yew::{
-    classes, html, virtual_dom::AttrValue, Callback, Classes, Component, Context, Event,
-    InputEvent, Properties,
+    classes, html, virtual_dom::AttrValue, Callback, Classes, Component, Context, InputEvent,
+    Properties,
 };
 
 use crate::FieldMessage;
@@ -64,6 +63,7 @@ impl<T: FormModel> Component for Field<T> {
 
     fn update(&mut self, _ctx: &Context<Self>, msg: Self::Message) -> bool {
         let mut state = self.form.state_mut();
+
         state.update_validation();
 
         msg.apply_to_state(state);
