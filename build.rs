@@ -2,10 +2,9 @@ use std::io::{self, Error, Write};
 use std::process::{Command, Output};
 
 fn main() {
-    println!("alkdksaldksla");
     match build_tailwindcss() {
         Ok(_) => (),
-        Err(_) => panic!("Failed to build tailwindcss :("),
+        Err(e) => panic!("Failed to build tailwindcss: {}", e),
     }
 }
 

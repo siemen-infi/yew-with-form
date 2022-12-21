@@ -5,7 +5,7 @@ use gloo::console::log;
 use validator::Validate;
 use yew::prelude::*;
 
-#[derive(FormModel, Validate, PartialEq, Clone)]
+#[derive(FormModel, Validate, serde::Serialize, PartialEq, Clone)]
 struct Person {
     #[validate(length(min = 1))]
     first_name: String,
@@ -44,10 +44,8 @@ impl Component for PersonForm {
             PersonFormMessage::Submit => {
                 if self.form.validate() {
                     let current_model = self.form.model();
-
-                    log!("submit!!!");
-                    log!(current_model.first_name);
-                    // gloo::console::log!(self.form.model())
+                    let person_json = serde_json::to_string_pretty(&current_model).unwrap();
+                    log!(person_json)
                 }
                 true
             }

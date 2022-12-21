@@ -1,8 +1,6 @@
-use crate::components::atoms::{label::*};
+use crate::components::atoms::label::*;
 use form::{component::Field, Form, FormModel};
 use yew::prelude::*;
-
-
 
 #[derive(Properties, PartialEq)]
 pub struct TextFieldProps<T: FormModel> {
