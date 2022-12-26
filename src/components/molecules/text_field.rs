@@ -56,8 +56,7 @@ where
             <Field<T>
                 form={props.form.clone()}
                 form_field_id={props.form_field_id.clone()}
-                on_input={props.on_input.clone()}>
-            </Field<T>>
+            />
             {optional_validation_error(props)}
         </>
     }

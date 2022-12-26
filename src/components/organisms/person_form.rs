@@ -7,9 +7,9 @@ use yew::prelude::*;
 
 #[derive(FormModel, Validate, serde::Serialize, PartialEq, Clone)]
 struct Person {
-    #[validate(length(min = 1))]
+    #[validate(length(min = 1, message = "No person without a first name!"))]
     first_name: String,
-    #[validate(length(min = 1))]
+    #[validate(length(min = 1, message = "No person wihtout a last name!"))]
     last_name: String,
 }
 
@@ -40,16 +40,17 @@ impl Component for PersonForm {
 
     fn update(&mut self, _ctx: &Context<Self>, msg: Self::Message) -> bool {
         match msg {
-            PersonFormMessage::Update => true, // Force component render update
+            PersonFormMessage::Update => (),
             PersonFormMessage::Submit => {
                 if self.form.validate() {
                     let current_model = self.form.model();
                     let person_json = serde_json::to_string_pretty(&current_model).unwrap();
                     log!(person_json)
                 }
-                true
             }
         }
+
+        true
     }
 
     fn view(&self, ctx: &Context<Self>) -> Html {
@@ -70,7 +71,7 @@ impl Component for PersonForm {
                  on_input={cb.clone()}
                  label_value={"Achternaam"}/>
                  <button
-                 type="button"
+                 type="submit"
                  onclick={ ctx.link().callback(|e: MouseEvent| {e.prevent_default(); PersonFormMessage::Submit}) }
              >
                  {"Submit"}

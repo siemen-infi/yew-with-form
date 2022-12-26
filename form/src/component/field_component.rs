@@ -27,8 +27,6 @@ pub struct FieldProperties<T: FormModel> {
     pub class_invalid: Classes,
     #[prop_or_else(||  classes!("is-valid") )]
     pub class_valid: Classes,
-    #[prop_or(None)]
-    pub on_input: Option<Callback<InputEvent>>,
 }
 
 pub struct Field<T: FormModel> {
@@ -39,7 +37,6 @@ pub struct Field<T: FormModel> {
     pub class: Classes,
     pub class_invalid: Classes,
     pub class_valid: Classes,
-    pub on_input: Option<Callback<InputEvent>>,
 }
 
 impl<T: FormModel> Component for Field<T> {
@@ -57,7 +54,6 @@ impl<T: FormModel> Component for Field<T> {
             class: props.class.clone(),
             class_invalid: props.class_invalid.clone(),
             class_valid: props.class_valid.clone(),
-            on_input: props.on_input.clone(),
         }
     }
 
